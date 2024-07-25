@@ -1,0 +1,36 @@
+<div (click)="onPlay.emit(hand)" class="relative flex w-full h-full">
+  <app-wave-background
+    class="left-0 right-0 m-auto w-full"
+    [enabled]="beate"
+  ></app-wave-background>
+  <div
+    [class]="
+      'h-full w-full absolute shadow-sm' +
+      (hand ? ' opacity-100' : ' opacity-0 ')
+    "
+  >
+    <div
+      [class]="
+        ' w-full absolute h-full z-0 flex -bottom-[5px]   bg-white rounded-full border-[15px] md:border-[18px] ' +
+        getHandSecondaryColor()
+      "
+    ></div>
+
+    <div
+      [class]="
+        ' w-full absolute h-full z-10 transition-transform active:translate-y-2 flex drop-shadow-xl shadow-2xl shadow-black-400  bg-white rounded-full border-[15px] md:border-[18px] ' +
+        getHandColor()
+      "
+    >
+      <div class="h-full w-full flex shadow-inner shadow-gray-400 rounded-full">
+        <img class="m-auto w-auto h-8 md:h-11" [src]="getHandIcon()" />
+      </div>
+    </div>
+  </div>
+  <div
+    [class]="
+      'size-full md:m-auto md:absolute bottom-0 top-0 left-0 right-0 md:w-28 md:h-28  absolute bg-bg-primary rounded-full transition-opacity duration-500 ' +
+      (!hand ? ' opacity-100' : ' opacity-0')
+    "
+  ></div>
+</div>

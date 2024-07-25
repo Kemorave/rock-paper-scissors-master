@@ -1,0 +1,101 @@
+<div class="size-full flex items-center place-content-center">
+  <div
+    [class]="
+      '   transition-opacity flex flex-col  h-fit justify-between content-between pt-auto duration-700 ' +
+      (!pickedHand ? '  opacity-0' : ' opacity-100')
+    "
+  >
+    <div class="w-full gap-10 md:gap-20 flex">
+      <div class="flex md:flex-col flex-col-reverse items-center">
+        <p class="uppercase my-5 text-xl text-white font-bold text-center">
+          You picked
+        </p>
+        <div class="size-36 md:size-44">
+          <app-play-hand
+            [beate]="result == PlayResult.playerWin"
+            [hand]="pickedHand!"
+          ></app-play-hand>
+        </div>
+      </div>
+      <div
+        [class]="
+          '  mt-auto md:flex hidden transition-opacity  flex-col text-center items-center place-content-center  duration-700 ' +
+          (!result ? '  opacity-0' : ' opacity-100')
+        "
+      >
+        <p class="uppercase my-5 text-5xl text-white font-bold">
+          {{ resultText }}
+        </p>
+        <button
+          (click)="reset()"
+          class="bg-white py-3 px-10 uppercase font-sans font-semibold tracking-widest rounded-lg"
+        >
+          play again
+        </button>
+      </div>
+      <div class="flex md:flex-col flex-col-reverse items-center">
+        <p class="uppercase my-5 text-xl text-white font-bold text-center">
+          The house picked
+        </p>
+        <div class="size-36 md:size-44 relative">
+          <app-play-hand
+            [beate]="result == PlayResult.houseWin"
+            [class]="' z-40 ' + (!houseHand ? ' animate-pulse ' : '')"
+            [hand]="houseHand!"
+          ></app-play-hand>
+        </div>
+      </div>
+    </div>
+    <div
+      [class]="
+        '  mt-auto md:hidden transition-opacity flex flex-col text-center items-center place-content-center  duration-700 ' +
+        (!result ? '  opacity-0' : ' opacity-100')
+      "
+    >
+      <p class="uppercase my-5 text-5xl text-white font-bold">
+        {{ resultText }}
+      </p>
+      <button
+        (click)="reset()"
+        class="bg-white py-3 px-10 uppercase font-sans font-semibold tracking-widest rounded-lg"
+      >
+        play again
+      </button>
+    </div>
+  </div>
+  <div
+    [class]="
+      'absolute w-[280px] md:w-auto  transition-opacity   flex duration-700 ' +
+      (pickedHand
+        ? 'animate-spin-1s  opacity-0 pointer-events-none'
+        : ' opacity-100')
+    "
+  >
+    <app-play-hand
+      (onPlay)="onPickedHand($event)"
+      class="absolute top-[55px] -left-10  size-24  md:size-28  clickable-hand"
+      [hand]="HandType.spock"
+    ></app-play-hand>
+    <app-play-hand
+      (onPlay)="onPickedHand($event)"
+      class="absolute -bottom-10 left-5  size-24  md:size-28  clickable-hand"
+      [hand]="HandType.lizard"
+    ></app-play-hand>
+    <app-play-hand
+      (onPlay)="onPickedHand($event)"
+      class="absolute -bottom-10 right-5  size-24  md:size-28  clickable-hand"
+      [hand]="HandType.rock"
+    ></app-play-hand>
+    <app-play-hand
+      (onPlay)="onPickedHand($event)"
+      class="absolute top-[55px] -right-10  size-24  md:size-28  clickable-hand"
+      [hand]="HandType.paper"
+    ></app-play-hand>
+    <app-play-hand
+      (onPlay)="onPickedHand($event)"
+      class="absolute -top-10 right-0 left-0 mx-auto  size-24  md:size-28  clickable-hand"
+      [hand]="HandType.scissors"
+    ></app-play-hand>
+    <img class="m-auto" src="./images/bg-pentagon.svg" />
+  </div>
+</div>

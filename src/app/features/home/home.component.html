@@ -1,0 +1,24 @@
+<section class="flex flex-col size-full">
+  <div
+    (click)="showRulesModal = false"
+    [class]="
+      'absolute z-50 h-[100vh] w-[100vw] flex  md:items-center md:justify-center bg-black bg-opacity-70 transition-opacity duration-[0.7s]' +
+      (showRulesModal ? 'opacity-100' : ' pointer-events-none opacity-0')
+    "
+  >
+    <app-rules></app-rules>
+  </div>
+  <app-score-header [score]="playGround.score" #header></app-score-header>
+  <app-play-ground
+    #playGround
+    (onScoreChange)="header.score = $event"
+    class="h-full"
+  ></app-play-ground>
+
+  <button
+    class="btn-default self-end lg:m-10 my-5 mx-auto"
+    (click)="showRulesModal = true"
+  >
+    Rules
+  </button>
+</section>

@@ -1,0 +1,3 @@
+.clickable-hand {
+  @apply cursor-pointer hover:scale-125 transition-all  
+}

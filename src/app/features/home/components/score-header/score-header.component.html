@@ -1,0 +1,21 @@
+<div
+  class="flex justify-between items-center align-middle place-items-center default-container max-w-[600px] self-center md:mx-auto m-5"
+>
+  <p class="text-2xl font-bold leading-5">
+    rock<br />
+    paper<br />
+    scissors<br />
+    lizard<br />
+    spock<br />
+  </p>
+  <div
+    class="w-32 bg-white h-24 pb-10 gap-3 justify-self-start rounded-md p-5 text-center flex-col align-middle items-center justify-center flex"
+  >
+    <p
+      class="text-lg font-sans font-semibold tracking-wider leading-6 text-blue-800"
+    >
+      Score
+    </p>
+    <p class="text-6xl font-bold leading-6 text-gray-700">{{ score?.toString()??"12"}}</p>
+  </div>
+</div>
