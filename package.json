@@ -7,7 +7,7 @@
     "build": "ng build --base-href https://kemorave.github.io/rock-paper-scissors-master/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "deploy": "gh-pages -d dist/launch-countdown-timer-main/browser"
+    "deploy": "gh-pages -d dist/rock-paper-scissors-master/browser"
   },
   "private": true,
   "dependencies": {
